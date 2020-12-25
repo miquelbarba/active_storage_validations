@@ -122,7 +122,7 @@ module ActiveStorageValidations
     def add_error(record, attribute, type, *attrs)
       key = options[:message].presence || type
       return if record.errors.added?(attribute, key)
-      record.errors.add(attribute, key, *attrs)
+      record.errors.add(attribute, key, **attrs.first)
     end
 
   end
